@@ -1,4 +1,3 @@
-
 // スプレッドシートのIDとシート名を設定
 const SpreadsheetID = "SpreadsheetID";
 const SheetName = "SheetName";
