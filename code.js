@@ -21,12 +21,10 @@ function main() {
             const urls = extractURLs(message.getPlainBody());
             urls.forEach(url => tmpList.push(url));
         });
-        // メール削除
-        thread.moveToTrash();
     });
 
     if (urlList.length < tmpList.length) {
-        //行が足りなかった場合 追加
+        // 行が足りなかった場合 追加
         targetSheet.insertRowAfter(tmpList.length - urlList.length);
     } else {
         tmpList = tmpList.concat(Array(urlList.length - tmpList.length).fill(""));
@@ -34,4 +32,7 @@ function main() {
 
     // シートを更新
     targetSheet.getRange("A:A").setValues(toSheetList(tmpList));
+
+    // メメール削除
+    threads.forEach(thread => thread.moveToTrash());
 }
