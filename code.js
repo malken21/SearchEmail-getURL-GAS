@@ -33,6 +33,6 @@ function main() {
     // シートを更新
     targetSheet.getRange("A:A").setValues(toSheetList(tmpList));
 
-    // メメール削除
+    // メール削除
     threads.forEach(thread => thread.moveToTrash());
 }
