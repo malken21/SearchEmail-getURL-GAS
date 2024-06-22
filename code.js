@@ -4,7 +4,6 @@ function main() {
     const spreadSheet = SpreadsheetApp.openById(SpreadsheetID);
     // 編集するシート
     const targetSheet = spreadSheet.getSheetByName(SheetName);
-
     // シートを取得
     const urlList = targetSheet.getRange("A:A").getValues();
 
