@@ -2,7 +2,7 @@ function main() {
 
     // スプレッドシートを開く
     const spreadSheet = SpreadsheetApp.openById(SpreadsheetID);
-
+    // 編集するシート
     const targetSheet = spreadSheet.getSheetByName(SheetName);
 
     // シートを取得
@@ -25,7 +25,7 @@ function main() {
 
     if (urlList.length < tmpList.length) {
         // 行が足りなかった場合 追加
-        targetSheet.insertRowAfter(tmpList.length - urlList.length);
+        targetSheet.insertRowsAfter(urlList.length, tmpList.length - urlList.length);
     } else {
         tmpList = tmpList.concat(Array(urlList.length - tmpList.length).fill(""));
     }
