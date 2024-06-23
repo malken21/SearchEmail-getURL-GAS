@@ -19,7 +19,7 @@ function main() {
         messages.forEach(message => {
             const urls = extractURLs(message.getPlainBody());
             urls.forEach(url => {
-                if(!urlList.includes(url) && tmpList.includes(url))
+                if(!urlList.includes(url) && !tmpList.includes(url))
                     tmpList.push(url);
             });
         });
