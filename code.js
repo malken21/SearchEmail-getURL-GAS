@@ -25,6 +25,7 @@ function main() {
                     tmpList.includes(url)
                 ) return;
                 tmpList.push(url);
+                console.log(`add ${url}`);
             });
         });
     });
