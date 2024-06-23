@@ -18,7 +18,10 @@ function main() {
         const messages = thread.getMessages();
         messages.forEach(message => {
             const urls = extractURLs(message.getPlainBody());
-            urls.forEach(url => tmpList.push(url));
+            urls.forEach(url => {
+                if(!urlList.includes(url) && tmpList.includes(url))
+                    tmpList.push(url);
+            });
         });
     });
 
