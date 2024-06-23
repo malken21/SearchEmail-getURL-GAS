@@ -19,8 +19,12 @@ function main() {
         messages.forEach(message => {
             const urls = extractURLs(message.getPlainBody());
             urls.forEach(url => {
-                if(!urlList.includes(url) && !tmpList.includes(url))
-                    tmpList.push(url);
+                // 既にスプレッドシートに書かれているURLの場合は return
+                if (
+                    urlList.includes(url) ||
+                    tmpList.includes(url)
+                ) return;
+                tmpList.push(url);
             });
         });
     });
