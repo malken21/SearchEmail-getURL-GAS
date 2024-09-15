@@ -15,7 +15,7 @@ function extractURLs(text) {
 function getRedirectURL(url) {
     const headers = UrlFetchApp.fetch(url, {
         followRedirects: false
-    }).getHeaders()
+    }).getHeaders();
     return headers.Location ? headers.Location : url;
 }
 
