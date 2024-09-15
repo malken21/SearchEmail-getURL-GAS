@@ -19,6 +19,8 @@ function main() {
         messages.forEach(message => {
             const urls = extractURLs(message.getPlainBody());
             urls.forEach(url => {
+                // もしリダイレクトURLの場合はリダイレクト先のURLを取得
+                url = getRedirectURL(url);
                 // 既にスプレッドシートに書かれているURLの場合は return
                 if (
                     urlList.includes(url) ||
