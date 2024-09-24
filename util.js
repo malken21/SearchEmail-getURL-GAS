@@ -13,10 +13,15 @@ function extractURLs(text) {
 // リダイレクト先のURLを取得
 // リダイレクトのURLではない場合は引数のURLを返す
 function getRedirectURL(url) {
-    const headers = UrlFetchApp.fetch(url, {
-        followRedirects: false
-    }).getHeaders();
-    return headers.Location ? headers.Location : url;
+    try {
+        const headers = UrlFetchApp.fetch(url, {
+            followRedirects: false
+        }).getHeaders();
+        return headers.Location ? headers.Location : url;
+    } catch (e) {
+        console.error(e);
+        return url;
+    }
 }
 
 function toCalculationList(list) {
