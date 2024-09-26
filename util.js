@@ -10,20 +10,6 @@ function extractURLs(text) {
     return urls || [];
 }
 
-// リダイレクト先のURLを取得
-// リダイレクトのURLではない場合は引数のURLを返す
-function getRedirectURL(url) {
-    try {
-        const headers = UrlFetchApp.fetch(url, {
-            followRedirects: false
-        }).getHeaders();
-        return headers.Location ? headers.Location : url;
-    } catch (e) {
-        console.error(e);
-        return url;
-    }
-}
-
 function toCalculationList(list) {
     return list.map(item => {
         return item[0];
